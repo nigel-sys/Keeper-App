@@ -1,0 +1,39 @@
+.form__container {
+  width: fit-content;
+  position: relative;
+  margin: 1.5rem auto;
+}
+form input,
+form textarea {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  border: 1px solid;
+}
+form input::placeholder,
+form textarea::placeholder {
+  padding: 20px;
+}
+form input {
+  border-radius: 5px 5px 0 0;
+  border-bottom: none;
+  width: 30rem;
+  height: 2rem;
+}
+form textarea {
+  resize: none;
+  border-radius: 0 0 5px 5px;
+  border-top: none;
+  width: 30rem;
+  height: 4rem;
+}
+.add__btn {
+  position: absolute;
+  left: 27rem;
+  top: 4rem;
+  border-style: none;
+  background: none;
+}
+.add__btn:hover {
+  cursor: pointer;
+}

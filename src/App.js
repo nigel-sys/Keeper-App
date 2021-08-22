@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import NewNoteForm from './components/NewNoteForm';
+import NotesContainer from './components/NotesContainer';
 
 function App() {
+  const [notes, setNotes] = useState([]);
+
+  const onSubmitNoteHandler = (note) => {
+    setNotes((prevState) => {
+      return [...prevState, note];
+    });
+  };
+
+  const onDeleteNoteHandler = (deleteID) => {
+    setNotes((prevNotes) => {
+      return prevNotes.filter((element, i) => {
+        return i !== deleteID;
+      });
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header>
+        <h1>Keeper</h1>
       </header>
+      <NewNoteForm onSubmitNote={onSubmitNoteHandler} />
+      <NotesContainer notes={notes} onDeleteNote={onDeleteNoteHandler} />
     </div>
   );
 }
